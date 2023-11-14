@@ -8,7 +8,7 @@ export const Loader: React.FC = () => {
                 <Image alt="Logo" src="/logo.png" fill />
             </div>
             <p className="text-sm text-muted-foreground">
-                The magician is working his magic...
+                The Visionary is working his magic...
             </p>
         </div>
     );
