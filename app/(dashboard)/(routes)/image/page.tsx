@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 type ImageProps = {};
 
@@ -58,6 +59,7 @@ const ImagePage: React.FC<ImageProps> = () => {
       setImages(urls);
     } catch (error: any) {
       console.log("");
+      toast.error("Could not generate images");
     } finally {
       router.refresh();
     }
