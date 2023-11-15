@@ -3237,6 +3237,11 @@ remark-rehype@^10.0.0:
     mdast-util-to-hast "^12.1.0"
     unified "^10.0.0"
 
+replicate@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/replicate/-/replicate-0.21.1.tgz#8e1a69ee61ecb1dc27bda466d1a1b34158aaf16b"
+  integrity sha512-ftR416+tuD55u6Rz0s5QsxoC2ZasslyFg9jxytirPhqFQwTQy9arU0vF29811t4iws8cMc+neL0IUzyq0pFlkQ==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
