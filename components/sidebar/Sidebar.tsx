@@ -79,7 +79,7 @@ export const Sidebar = ({
                         <Image fill alt="Logo" src="/logo.png" />
                     </div>
                     <h1 className={cn("text-2xl font-bold", poppins.className)}>
-                        Visionary-AI
+                        Visionary AI
                     </h1>
                 </Link>
                 <div className="space-y-1">
@@ -102,7 +102,7 @@ export const Sidebar = ({
                     ))}
                 </div>
             </div>
-            <FreeCounter apiLimitCount={apiLimitCount} isPro={false} />
+            <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
         </div>
     );
 };
