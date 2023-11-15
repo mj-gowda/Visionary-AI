@@ -31,7 +31,7 @@ export const ProModal = () => {
 
             window.location.href = response.data.url;
         } catch (error) {
-            toast.error("Something went wrong");
+            toast.error("Could not Subscribe");
         } finally {
             setLoading(false);
         }
@@ -43,7 +43,7 @@ export const ProModal = () => {
                 <DialogHeader>
                     <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
                         <div className="flex items-center gap-x-2 font-bold text-xl">
-                            Upgrade to Magician
+                            Upgrade to Visionary
                             <Badge variant="premium" className="uppercase text-sm py-1">
                                 Plus
                             </Badge>
