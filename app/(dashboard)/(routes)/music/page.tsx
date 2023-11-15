@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { formSchema } from "./constants";
+import { toast } from "react-hot-toast";
 
 type MusicProps = {};
 
@@ -41,6 +42,7 @@ const MusicPage: React.FC<MusicProps> = () => {
             form.reset();
         } catch (error: any) {
             console.log("");
+            toast.error("Could not generate music");
         } finally {
             router.refresh();
         }

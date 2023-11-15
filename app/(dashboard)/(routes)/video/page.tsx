@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { formSchema } from "./constants";
 import { FileAudio, VideoIcon } from "lucide-react";
+import { toast } from "react-hot-toast";
 
 type VideoProps = {};
 
@@ -40,6 +41,7 @@ const VideoPage: React.FC<VideoProps> = () => {
             form.reset();
         } catch (error: any) {
             console.log("Video Error");
+            toast.error("Could not generate video");
         } finally {
             router.refresh();
         }
