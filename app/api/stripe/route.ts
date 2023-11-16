@@ -63,7 +63,7 @@ export async function GET() {
           price_data: {
             currency: "GBP",
             product_data: {
-              name: "Magician Plus",
+              name: "Visionary Plus",
               description: "Unlimited AI Generations",
             },
             unit_amount: 999, // £9.99
