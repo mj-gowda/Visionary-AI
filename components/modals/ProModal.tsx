@@ -6,12 +6,12 @@ import { Check, Zap } from "lucide-react";
 import { toast } from "react-hot-toast";
 
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription,
-    DialogFooter,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,65 +20,75 @@ import { tools } from "@/constants/constants";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+/**
+ * Pro modal which is opened to allow the user to subscribe.
+ * @returns (JSX.Element): pro modal component
+ */
 export const ProModal = () => {
-    const proModal = useProModal();
-    const [loading, setLoading] = useState(false);
+  const proModal = useProModal(); // custom hook to open/close the modal
+  const [loading, setLoading] = useState(false); // loading state
 
-    const onSubscribe = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.get("/api/stripe");
+  /**
+   * Function that is called when the user clicks the subscribe button.
+   * Calls the Stripe API to get the checkout session url.
+   */
+  const onSubscribe = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/stripe"); // get checkout session url
 
-            window.location.href = response.data.url;
-        } catch (error) {
-            toast.error("Could not Subscribe");
-        } finally {
-            setLoading(false);
-        }
-    };
+      window.location.href = response.data.url; // redirect to checkout page
+    } catch (error) {
+      toast.error("Could not subscribe");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-        <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
-                        <div className="flex items-center gap-x-2 font-bold text-xl">
-                            Upgrade to Visionary
-                            <Badge variant="premium" className="uppercase text-sm py-1">
-                                Plus
-                            </Badge>
-                        </div>
-                    </DialogTitle>
-                    <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
-                        {tools.map((tool) => (
-                            <Card
-                                key={tool.href}
-                                className="p-3 border-black/5 flex items-center justify-between"
-                            >
-                                <div className="flex items-center gap-x-4">
-                                    <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
-                                        <tool.icon className={cn("w-6 h-6", tool.color)} />
-                                    </div>
-                                    <div className="font-semibold text-sm">{tool.label}</div>
-                                </div>
-                                <Check className="text-primary w-5 h-5" />
-                            </Card>
-                        ))}
-                    </DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                    <Button
-                        disabled={loading}
-                        onClick={onSubscribe}
-                        size="lg"
-                        variant="premium"
-                        className="w-full"
-                    >
-                        Upgrade
-                        <Zap className="w-4 h-4 ml-2 fill-white" />
-                    </Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
-    );
+  // TODO: do not render if user is subscribed
+
+  return (
+    <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
+            <div className="flex items-center gap-x-2 font-bold text-xl">
+              Upgrade to Visionary
+              <Badge variant="premium" className="uppercase text-sm py-1">
+                Plus
+              </Badge>
+            </div>
+          </DialogTitle>
+          <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
+            {tools.map((tool) => (
+              <Card
+                key={tool.href}
+                className="p-3 border-black/5 flex items-center justify-between"
+              >
+                <div className="flex items-center gap-x-4">
+                  <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
+                    <tool.icon className={cn("w-6 h-6", tool.color)} />
+                  </div>
+                  <div className="font-semibold text-sm">{tool.label}</div>
+                </div>
+                <Check className="text-primary w-5 h-5" />
+              </Card>
+            ))}
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button
+            disabled={loading}
+            onClick={onSubscribe}
+            size="lg"
+            variant="premium"
+            className="w-full"
+          >
+            Upgrade
+            <Zap className="w-4 h-4 ml-2 fill-white" />
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
 };
