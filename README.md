@@ -1,4 +1,4 @@
-![cover](./public/homepage.png)
+![cover](https://github.com/mj-gowda/Visionary-AI/assets/128355539/419ebe97-00a4-4774-a01a-e5140291708d)
 
 
 ---
@@ -14,7 +14,7 @@ To run the project, you need:
 
 # **Features**
 Our platform offers several unique and engaging features to explore:
-![features](./public/dashboard.png)
+![features](https://github.com/mj-gowda/Visionary-AI/assets/128355539/7f372f1c-abf0-4a21-9bc3-ab841f846da6)
 
 ## **Authentication and Account Management**
 Our system ensures seamless and secure user experiences:
